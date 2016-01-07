@@ -10,6 +10,8 @@ namespace Tester
 {
     using System;
 
+    using Geometry;
+
     using NumericHelper;
 
     /// <summary>
@@ -20,9 +22,14 @@ namespace Tester
         /// <summary>메인 함수</summary>
         private static void Main()
         {
-            var rect = new Rectangle<int, IntHelper>(0, 0, 1, 1);
-            Console.WriteLine("width = {0}", rect.Width);
-            Console.WriteLine("height = {0}", rect.Height);
+            var rect1 = GeometryFactory<int, IntHelper>.CreateRectangle(-10, 0, 1, 20);
+            var rect2 = GeometryFactory<int, IntHelper>.CreateRectangle(-20, 10, 5, 15);
+            var env = GeometryFactory<int, IntHelper>.CreatEnvelope();
+            env.Expand(rect1);
+            env.Expand(rect2);
+
+            Console.WriteLine("min : {0}, {1}", env.StartX, env.StartY);
+            Console.WriteLine("max : {0}, {1}", env.EndX, env.EndY);
 
             Console.Read();
         }

@@ -8,6 +8,8 @@
 //  --------------------------------------------------------------------------------------------------------------------
 namespace NumericHelper
 {
+    using System;
+
     /// <summary>int 값 연산 기능 클래스</summary>
     public class IntHelper : INumericHelper<int>
     {
@@ -42,5 +44,17 @@ namespace NumericHelper
         /// <param name="b">두 번째 값</param>
         /// <returns>나눈 결과 값</returns>
         public int Subdivision(int a, int b) => a / b;
+
+        /// <summary>두 값 중에서 작은 값을 가져옴</summary>
+        /// <param name="a">첫 번째 값</param>
+        /// <param name="b">두 번째 값</param>
+        /// <returns>두 값 중에서 작은 값</returns>
+        public int Min(int a, int b) => Math.Min(a, b);
+
+        /// <summary>두 값 중에서 큰 값을 가져옴</summary>
+        /// <param name="a">첫 번째 값</param>
+        /// <param name="b">두 번째 값</param>
+        /// <returns>두 값 중에서 큰 값</returns>
+        public int Max(int a, int b) => Math.Max(a, b);
     }
 }
